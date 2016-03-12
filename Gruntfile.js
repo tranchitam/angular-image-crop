@@ -16,7 +16,7 @@ module.exports = function (grunt) {
         uglify: {
             build: {
                 options: {
-                    mangle: false
+                    mangle: true
                 },
                 files: {
                     'dist/ngImageCrop.min.js': ['dist/**/*.js']

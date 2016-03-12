@@ -19,15 +19,6 @@
                 canvas.width = attrs.width;
                 canvas.height = attrs.height;
 
-                $(element).parent().css({
-                    'width': canvas.width,
-                    'height': canvas.height,
-                    'maxWidth': canvas.width,
-                    'maxHeight': canvas.height,
-                    'minWidth': canvas.width,
-                    'minHeight': canvas.height
-                });
-
                 var imageControl = {width: 0, height: 0};
                 var translatePos = {x: 0, y: 0};
                 var scale = 1.0;
