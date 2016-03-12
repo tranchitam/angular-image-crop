@@ -1,0 +1,21 @@
+{
+  "name": "angular-image-crop",
+  "private": true,
+  "version": "0.0.1",
+  "description": "An AngularJS Typeahead directive",
+  "repository": "https://github.com/tranchitam/angular-image-crop",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.6.1",
+    "grunt": "0.x.x",
+    "grunt-contrib-clean": "0.5.x",
+    "grunt-contrib-copy": "0.4.x",
+    "grunt-contrib-cssmin": "0.6.x",
+    "grunt-contrib-uglify": "0.2.x"
+  },
+  "scripts": {
+    "postinstall": "bower install",
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8080 -c-1"
+  }
+}

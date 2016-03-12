@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="DemoApp" ng-cloak>
+<head>
+    <title>Angular Image Crop Demo</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="../src/ngImageCrop.js"></script>
+
+
+    <script>
+        var app = angular.module('DemoApp', ['ngImageCrop']);
+        app.controller('appController', ['$scope', function ($scope) {
+            $scope.doCropping = function ($imageData, $imageType) {
+                $('#cropImage')[0].src = $imageData;
+                $('#imageCropModal').modal('show');
+            }
+            $scope.imageData = {data: 'https://avatars2.githubusercontent.com/u/7502937?v=3&s=460'}
+        }]);
+    </script>
+</head>
+<body oncontextmenu="return false;" style="-webkit-user-select: none; -moz-user-select: none; user-select: none;">
+<div class="container-fluid" ng-controller="appController">
+    <div class="row">
+        <image-crop-directive image-data="imageData"
+                              width="800"
+                              height="500"
+                              do-cropping="doCropping($imageData, $imageType)"
+                              do-load-image="doLoadImage($imageSrc)"></image-crop-directive>
+    </div>
+</div>
+
+<!-- Bootstrap modal -->
+<div class="modal fade" id="imageCropModal" tabindex="-1" role="dialog" aria-labelledby="imageCropModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="imageCropModalLabel">Image Crop Data</h4>
+            </div>
+            <div class="modal-body">
+                <img id="cropImage"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
